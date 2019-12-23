@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+.PrivateTabIndicator-colorSecondary-64 {
+  background-color: blue !important;
+}
+
+.MuiGrid-grid-xs-12 {
+  display: flex;
+  margin: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.MuiListItem-root {
+  text-align: center !important;
+}
+
+.MuiListItemText-root {
+  margin-right: 60px;
+}
+
+.MuiTypography-body1 {
+  font-size: 1.7rem !important;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+.MuiSvgIcon-root {
+  font-size: 30px !important;
+}
+
+.MuiListItemText-secondary,
+.MuiTypography-body2,
+.MuiTypography-colorTextSecondary {
+  font-size: 30px !important;
+}
