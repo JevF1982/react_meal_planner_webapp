@@ -58,7 +58,11 @@ export default function IngredientList(props) {
                 >
                   <DeleteIcon />
                 </IconButton>
-                <IconButton edge="end" aria-label="delete">
+                <IconButton
+                  edge="end"
+                  aria-label="edit"
+                  onClick={() => props.handleEdit(props)}
+                >
                   <EditIcon />
                 </IconButton>
               </ListItemSecondaryAction>

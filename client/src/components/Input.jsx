@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import IngredientsList from "./IngredientList";
 import uuid from "react-uuid";
+import { IngredientContext } from "./MyContext";
 
 const styles = () => ({
   buttonPadding: {
@@ -17,7 +18,8 @@ const styles = () => ({
 const Input = props => {
   const [ingredientsValue, setIngredientsValue] = useState("");
   const [ingredientsQuantity, setIngredientsQuantity] = useState("");
-  const [ingredientsList, setIngredientsList] = useState([]);
+
+  const [ingredientsList, setIngredientsList] = useContext(IngredientContext);
   const [errors, setErrors] = useState([]);
 
   const handleChange = e => {
@@ -29,7 +31,7 @@ const Input = props => {
 
   const handleDelete = e => {
     const newList = ingredientsList.filter(item => e !== item.id);
-    console.log(e);
+
     setIngredientsList(newList);
   };
 
@@ -47,6 +49,14 @@ const Input = props => {
 
     return errors;
   }
+
+  const handleEdit = e => {
+    setIngredientsValue(e.Ingredient);
+    setIngredientsQuantity(e.Quantity);
+    handleDelete(e.id);
+    document.getElementById("filled-textarea").value = e.Ingredient + "";
+    document.getElementById("filled-textarea2").value = e.Quantity + "";
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -142,6 +152,7 @@ const Input = props => {
             id={item.id}
             Quantity={item.quantity}
             handleDelete={e => handleDelete(e)}
+            handleEdit={e => handleEdit(e)}
             ingredientsList={ingredientsList}
           />
         );
