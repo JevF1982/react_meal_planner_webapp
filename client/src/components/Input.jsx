@@ -117,7 +117,7 @@ const Input = props => {
           onClick={handleAlternateSubmit}
           name="mealList"
         >
-          Add to meal
+          Add all to meal
         </Button>
 
         <div>
